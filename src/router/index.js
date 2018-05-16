@@ -8,7 +8,6 @@ Vue.use(Router)
 
 /* Layout */
 import Layout from '../views/layout/Layout'
-
 import Page from '../views/page/page.vue'
 /**
 * hidden: true                   if `hidden:true` will not show in the sidebar(default is false)
@@ -22,37 +21,59 @@ import Page from '../views/page/page.vue'
     icon: 'svg-name'             the icon show in the sidebar,
   }
 **/
-var pages = [
-  {
-    path: 'dashboard',
-    component: () => import('@/views/dashboard/index')
+import login from '../views/login'
+import dashboard from '../views/dashboard'
+import realtime from '../views/realtime'
+
+const pages = [{
+  path: 'dashboard',
+  name: '首页',
+  component: dashboard,
+  meta: {
+    title: '首页',
+    icon: 'icon-dashboard1'
   }
-]
+}, {
+  path: 'realtime',
+  name: '实时数据',
+  component: realtime,
+  meta: {
+    title: '实时数据',
+    icon: 'icon-dashboard1'
+  }
+}]
+
 export const constantRouterMap = [
   {
     path: '/login',
-    component: () => import('@/views/login/index'),
-    hidden: true
-  },
-  {
-    path: '/404',
-    component: () => import('@/views/404'),
+    component: login,
     hidden: true
   },
   {
     path: '/',
     component: Layout,
-    redirect: '/dashboard',
-    name: 'Dashboard',
-    hidden: true,
+    redirect: '/index'
+  },
+  {
+    path: '/index',
+    component: Layout,
+    redirect: '/index/dashboard',
+    name: '仪表盘',
+    meta: {
+      title: '仪表盘',
+      icon: 'icon-dashboard1'
+    },
     children: pages
   },
   {
     path: '/page',
-    redirect: '/page/page',
     component: Page,
-    name: 'page',
-    hidden: true,
+    redirect: '/page/dashboard',
+    name: '单页',
+    meta: {
+      title: '单页',
+      icon: 'icon-dashboard1'
+    },
     children: pages
   },
   {
@@ -91,6 +112,11 @@ export const constantRouterMap = [
   {
     path: '*',
     redirect: '/404',
+    hidden: true
+  },
+  {
+    path: '/404',
+    component: () => import('@/views/404'),
     hidden: true
   }
 ]

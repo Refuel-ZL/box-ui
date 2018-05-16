@@ -3,7 +3,7 @@
     <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
       <line-chart :chart-data="lineChartData"></line-chart>
     </el-row>
-    <panel-group @handleSetLineChartData="handleSetLineChartData"></panel-group>
+    <panel-group :listdata="listdata" @handleSetLineChartData="handleSetLineChartData"></panel-group>
     <el-row :gutter="32">
       <el-col :xs="24" :sm="24" :lg="8">
         <div class="chart-wrapper">
@@ -30,6 +30,8 @@ import LineChart from './components/LineChart'
 import RaddarChart from './components/RaddarChart'
 import PieChart from './components/PieChart'
 import BarChart from './components/BarChart'
+
+import { listAll } from '@/api/battery'
 
 const lineChartData = {
   newVisitis: {
@@ -61,12 +63,21 @@ export default {
   },
   data() {
     return {
+      listdata: [],
       lineChartData: lineChartData.newVisitis
     }
+  },
+  created() {
+    this.listAlldata()
   },
   methods: {
     handleSetLineChartData(type) {
       this.lineChartData = lineChartData[type]
+    },
+    listAlldata() {
+      listAll().then(response => {
+        this.listdata = response
+      })
     }
   }
 }
