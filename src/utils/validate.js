@@ -31,3 +31,8 @@ export function validatAlphabets(str) {
   return reg.test(str)
 }
 
+/* 匹配非负整数（正整数 + 0） */
+export function validatPlus(str) {
+  const reg = /(^[1-9]+\d*$)|(^0$)/
+  return reg.test(str)
+}

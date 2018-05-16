@@ -8,7 +8,7 @@ Vue.use(Router)
 
 /* Layout */
 import Layout from '../views/layout/Layout'
-import Page from '../views/page/page.vue'
+// import Page from '../views/page/page.vue'
 /**
 * hidden: true                   if `hidden:true` will not show in the sidebar(default is false)
 * alwaysShow: true               if set true, will always show the root menu, whatever its child routes length
@@ -25,24 +25,6 @@ import login from '../views/login'
 import dashboard from '../views/dashboard'
 import realtime from '../views/realtime'
 
-const pages = [{
-  path: 'dashboard',
-  name: '首页',
-  component: dashboard,
-  meta: {
-    title: '首页',
-    icon: 'icon-dashboard1'
-  }
-}, {
-  path: 'realtime',
-  name: '实时数据',
-  component: realtime,
-  meta: {
-    title: '实时数据',
-    icon: 'icon-dashboard1'
-  }
-}]
-
 export const constantRouterMap = [
   {
     path: '/login',
@@ -57,24 +39,15 @@ export const constantRouterMap = [
   {
     path: '/index',
     component: Layout,
-    redirect: '/index/dashboard',
     name: '仪表盘',
     meta: {
       title: '仪表盘',
       icon: 'icon-dashboard1'
     },
-    children: pages
-  },
-  {
-    path: '/page',
-    component: Page,
-    redirect: '/page/dashboard',
-    name: '单页',
-    meta: {
-      title: '单页',
-      icon: 'icon-dashboard1'
-    },
-    children: pages
+    children: [{
+      path: 'dashboard', name: '首页', component: dashboard, meta: { title: '首页', icon: 'icon-dashboard1' }}, {
+      path: 'realtime/:id', name: '实时数据', component: realtime, meta: { title: '实时数据', icon: 'icon-dashboard1', noCache: true }
+    }]
   },
   {
     path: '/example',

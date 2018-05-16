@@ -1,6 +1,6 @@
 <template>
   <div class="realtime-container">
-    <component :is="currentRole"></component>
+    <component :is="currentRole" ref="table"  ></component>
   </div>
 </template>
 <script>
@@ -9,6 +9,16 @@ export default {
   name: 'realtime',
   components: {
     adminrealtime
+  },
+  beforeRouteUpdate(to, from, next) {
+    var _this = this
+    next()
+    _this.$refs.table.setid(this.$route.params.id)
+  },
+  beforeRouteLeave(to, from, next) {
+    var _this = this
+    next()
+    _this.$refs.table.stop()
   },
   data() {
     return {

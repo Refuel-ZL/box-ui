@@ -15,5 +15,5 @@ export function getobject(obj, a, b, c) {
       return obj[key][c]
     }
   }
-  return ''
+  return null
 }
