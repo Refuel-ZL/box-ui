@@ -26,13 +26,18 @@ export function validateUpperCase(str) {
 }
 
 /* 大小写字母*/
-export function validatAlphabets(str) {
+export function validateAlphabets(str) {
   const reg = /^[A-Za-z]+$/
   return reg.test(str)
 }
 
 /* 匹配非负整数（正整数 + 0） */
-export function validatPlus(str) {
+export function validatePlus(str) {
   const reg = /(^[1-9]+\d*$)|(^0$)/
+  return reg.test(str)
+}
+/* 匹配IP */
+export function validateIP(str) {
+  const reg = /^(?:(?:2[0-4][0-9]\.)|(?:25[0-5]\.)|(?:1[0-9][0-9]\.)|(?:[1-9][0-9]\.)|(?:[0-9]\.)){3}(?:(?:2[0-5][0-5])|(?:25[0-5])|(?:1[0-9][0-9])|(?:[1-9][0-9])|(?:[0-9]))$/
   return reg.test(str)
 }

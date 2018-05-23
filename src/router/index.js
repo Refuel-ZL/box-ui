@@ -24,6 +24,7 @@ import Layout from '../views/layout/Layout'
 import login from '../views/login'
 import dashboard from '../views/dashboard'
 import realtime from '../views/realtime'
+import config from '../views/config'
 
 export const constantRouterMap = [
   {
@@ -45,8 +46,11 @@ export const constantRouterMap = [
       icon: 'icon-dashboard1'
     },
     children: [{
-      path: 'dashboard', name: '首页', component: dashboard, meta: { title: '首页', icon: 'icon-dashboard1' }}, {
+      path: 'dashboard', name: '首页', component: dashboard, meta: { title: '首页', icon: 'icon-dashboard1' }
+    }, {
       path: 'realtime/:id', name: '实时数据', component: realtime, meta: { title: '实时数据', icon: 'icon-dashboard1', noCache: true }
+    }, {
+      path: 'config/:type/:id', name: '信息配置', component: config, meta: { title: '信息配置', icon: 'icon-dashboard1', noCache: true }
     }]
   },
   {

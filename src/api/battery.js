@@ -15,3 +15,11 @@ export function realtime(batteryGroup) {
     params: ''
   })
 }
+
+export function config(batteryGroup, type, params) {
+  return request({
+    url: '/batteryDemo/batteryGroup/' + batteryGroup + '/config/' + type,
+    method: 'get',
+    params: params
+  })
+}

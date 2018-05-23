@@ -31,7 +31,7 @@ import realtimetable from './components/realtimetable'
 import { listAll, realtime } from '@/api/battery'
 import { getobject } from '@/utils/custom'
 import { parseTime } from '@/utils/'
-import { validatPlus } from '@/utils/validate'
+import { validatePlus } from '@/utils/validate'
 export default {
   name: 'realtime-admin',
   components: {
@@ -84,9 +84,9 @@ export default {
       }
     },
     setid(id) {
-      console.log('asdsa: ' + id, validatPlus(id))
+      console.log('asdsa: ' + id, validatePlus(id))
       this.stop()
-      if (!validatPlus(id)) {
+      if (!validatePlus(id)) {
         this.table_data = {}
         return
       } else {
