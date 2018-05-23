@@ -1,20 +1,8 @@
-# vueAdmin-template
-
-> A minimal vue admin template with Element UI & axios & iconfont & permission control & lint
-
-**Live demo:** http://panjiachen.github.io/vueAdmin-template
-
-[中文文档](https://github.com/PanJiaChen/vueAdmin-template/blob/master/README-zh.md)
-
-## Build Setup
-
-``` bash
-
-# Clone project
-git clone https://github.com/PanJiaChen/vueAdmin-template.git
-
 # Install dependencies
 npm install
+
+# 建议不要用cnpm  安装有各种诡异的bug 可以通过如下操作解决npm速度慢的问题
+npm install --registry=https://registry.npm.taobao.org
 
 # serve with hot reload at localhost:9528
 npm run dev
@@ -25,20 +13,13 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
+#实时数据
+http://127.0.0.1:8080/#/index/realtime/2
 
-## Demo
-![demo](https://github.com/PanJiaChen/PanJiaChen.github.io/blob/master/images/demo.gif)
+# 系统配置
+http://127.0.0.1:8080/#/index/config/systemBattery/2
 
-## Extra
-If you want router permission && generate menu by user roles , you can use this branch [permission-control](https://github.com/PanJiaChen/vueAdmin-template/tree/permission-control)
+# 报警配置
+http://127.0.0.1:8080/#/index/config/alarmBattery/2
 
-## Related Project
- [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)
-
- [electron-vue-admin](https://github.com/PanJiaChen/electron-vue-admin)
-
-
-## License
-[MIT](https://github.com/PanJiaChen/vueAdmin-template/blob/master/LICENSE) license.
-
-Copyright (c) 2017-present PanJiaChen
+Copyright (c) 2017-present ZhaoLei
