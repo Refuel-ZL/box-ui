@@ -25,6 +25,7 @@ import login from '../views/login'
 import dashboard from '../views/dashboard'
 import realtime from '../views/realtime'
 import config from '../views/config'
+import grouplog from '../views/grouplog'
 
 export const constantRouterMap = [
   {
@@ -51,6 +52,8 @@ export const constantRouterMap = [
       path: 'realtime/:id', name: '实时数据', component: realtime, meta: { title: '实时数据', icon: 'icon-dashboard1', noCache: true }
     }, {
       path: 'config/:type/:id', name: '信息配置', component: config, meta: { title: '信息配置', icon: 'icon-dashboard1', noCache: true }
+    }, {
+      path: 'grouplog/:id', name: '组日志', component: grouplog, meta: { title: '电磁组情况', icon: 'icon-dashboard1', noCache: true }
     }]
   },
   {

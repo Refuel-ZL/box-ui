@@ -23,3 +23,13 @@ export function config(batteryGroup, type, params) {
     params: params
   })
 }
+
+export function grouplog(batteryGroup, date) {
+  return request({
+    url: '/batteryDemo/batteryGroup/' + batteryGroup + '/history/snapshot',
+    method: 'get',
+    params: {
+      time: date
+    }
+  })
+}
